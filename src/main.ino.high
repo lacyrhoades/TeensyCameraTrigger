@@ -1,0 +1,32 @@
+#include <Arduino.h>
+
+const int pinLED = 13; // register C, bit 5
+
+void setup() {
+    pinMode(pinLED, OUTPUT);
+    pinMode(2, OUTPUT);
+    pinMode(14, OUTPUT);
+}
+
+void loop() {
+    // LED ON
+    GPIOC_PDOR = GPIOC_PDIR | 0b100000;
+
+    // FOCUS
+    GPIOD_PDOR = GPIOD_PDIR | 0b01;
+
+    delay(800);
+
+    // LED OFF
+    GPIOC_PDOR = GPIOC_PDIR & 0b11011111;
+
+    // FIRE
+    GPIOD_PDOR = GPIOD_PDIR | 0b10;
+
+    delay(800);
+
+    // RESET
+    GPIOD_PDOR = GPIOD_PDIR & 0b00;
+
+    delay(800);
+}
