@@ -1,16 +1,24 @@
+[Picture of MIDI to camera adapter thing]
+
+## Usage as a midi device
+
+* Use midi to control the cameras
+* Differnt "program changes" are different behavior
+* Device will reset / unfocus all cameras after 30 seconds of inactivity
+
 ## Program 0 (most programs):
 
-* Note on low velocity: Focus all cameras
-* Note on high velocity: Fire all shutters
-* Note off low velocity: Unfire all cameras (remain focused)
-* Note off high velocity: Unfire and unfocus
+* Note On (low velocity): Focus all cameras
+* Note On (high velocity): Fire all shutters
+* Note Off (low velocity): Release shutter button, all cameras (remain focused)
+* Note Off (high velocity): Release shutter and unfocus, all cameras
 
 ## Program 1:
 
-* Note on low velocity: Focus note number
-* Note on high velocity: Fire note number
-* Note off low velocity: Unfire note number (remain focused)
-* Note off high velocity: Unfire & unfocus note number
+* Note On (low velocity): Focus note number
+* Note On (high velocity): Fire note number
+* Note Off (low velocity): Release shutter on note number (remain focused)
+* Note Off (high velocity): Release shutter & unfocus note number
 
 ## Using sendmidi in Terminal on macOS
 
